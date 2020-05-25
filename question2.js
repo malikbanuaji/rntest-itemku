@@ -25,7 +25,7 @@
 function solution(N = STAGES, users = USERS) {
   let answer = [];
   let completed = users;
-  let totalUsers = users.length;
+  let totalPlayer = users.length;
 
   let percentage = [];
 
@@ -34,15 +34,12 @@ function solution(N = STAGES, users = USERS) {
     // total who completed the stage
     completed = completed.filter((item) => item > i);
     // Calculate stuck player
-    // Current total user - who completed the stages
-    stuck = totalUsers - completed.length;
-    // console.log(
-    //   `Stage ${i}, percentage ${stuck}/${totalUsers} = ${stuck / totalUsers}`
-    // );
+    // Current total player - who completed the stages
+    stuck = totalPlayer - completed.length;
     // update current total player who completed the stage
     // because we already calculate the percentation of this stage
-    percentage.push([i, stuck / totalUsers]);
-    totalUsers = completed.length;
+    percentage.push([i, stuck / totalPlayer]);
+    totalPlayer = completed.length;
   }
 
   // console.log(
@@ -60,8 +57,8 @@ function solution(N = STAGES, users = USERS) {
 }
 
 const STAGES = 5;
-const USERS = [2, 1, 2, 6, 2, 4, 3, 3, 3, 4, 4];
+const USERS = [2, 1, 2, 6, 2, 4, 3, 3];
 
-console.log("Stages", STAGES);
-console.log("Users", USERS);
+// console.log("Stages", STAGES);
+// console.log("Users", USERS);
 console.log("Answer", solution(STAGES, USERS));

@@ -1,19 +1,10 @@
-const RECORD = [
-  "Enter uid1234 Muzi", 
-  "Enter uid4567 Prodo", 
-  "Leave uid1234", 
-  "Enter uid1234 Prodo", 
-  "Change uid4567 Ryan",
-];
-
 const ACTION_TYPE = {
-  ENTER: 'Enter',
-  LEAVE: 'Leave',
-  CHANGE: 'Change'
-}
+  ENTER: "Enter",
+  LEAVE: "Leave",
+  CHANGE: "Change",
+};
 
-
-function solution(record=[]) {
+function solution(record = []) {
   let answer = [];
 
   let users = {};
@@ -21,20 +12,20 @@ function solution(record=[]) {
   // utility for spliting each record action, uid, and name
   function detail(user) {
     // name is `undefined` when action is `leave`
-    let [action, id, name] = user.split(" ")
+    let [action, id, name] = user.split(" ");
 
     if (action === ACTION_TYPE.LEAVE) {
       return {
         action,
-        id
-      }
+        id,
+      };
     }
 
     return {
       action,
       id,
-      name
-    }
+      name,
+    };
   }
 
   const actions = [];
@@ -54,22 +45,29 @@ function solution(record=[]) {
 
   function answerHandler(item) {
     // Set the nickname to default
-    let nickname = users[item.id].name
+    let nickname = users[item.id].name;
 
     if (item.action === ACTION_TYPE.ENTER) {
       // User is entering the chat
-      return `${nickname} came in.`
+      return `${nickname} came in.`;
     }
     if (item.action === ACTION_TYPE.LEAVE) {
       // User is leaving the chat
-      return `${nickname} has left.`
+      return `${nickname} has left.`;
     }
-
   }
 
-  answer = actions.map(answerHandler)
-  return answer
+  answer = actions.map(answerHandler);
+  return answer;
 }
 
-console.log('record:\n', RECORD)
-console.log('answer:\n', solution(RECORD))
+const RECORD = [
+  "Enter uid1234 Muzi",
+  "Enter uid4567 Prodo",
+  "Leave uid1234",
+  "Enter uid1234 Prodo",
+  "Change uid4567 Ryan",
+];
+
+console.log("record:\n", RECORD);
+console.log("answer:\n", solution(RECORD));
