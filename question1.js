@@ -71,3 +71,5 @@ const RECORD = [
 
 console.log("record:\n", RECORD);
 console.log("answer:\n", solution(RECORD));
+
+module.exports = solution;
