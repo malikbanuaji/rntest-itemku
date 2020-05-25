@@ -23,14 +23,11 @@ function solution(relation = []) {
     let s = [];
 
     for (let i = 0; i < set.length; i++) {
-      // console.log(item[set[i]], currentRow[set[i]]);
       s.push(item[set[i]] === currentRow[set[i]]);
     }
 
     return s.every((d) => d === true);
   };
-
-  // console.log(subsets.sort((a, b) => a.length - b.length));
 
   let potentialCandidateKey = [];
 
@@ -65,20 +62,10 @@ function solution(relation = []) {
     }
   }
   const pck = potentialCandidateKey.sort((a, b) => a.length - b.length);
-  console.log(pck);
+
   answer = pck.length;
-  console.log(answer);
+
   return answer;
 }
-// const RELATION = [
-//   [100, "ryan", "music", 2],
-//   [200, "apeach", "math", 2],
-//   [300, "tube", "computer", 3],
-//   [400, "con", "computer", 4],
-//   [500, "muzi", "music", 3],
-//   [600, "apeach", "music", 2],
-// ];
-
-// solution(RELATION);
 
 module.exports = solution;

@@ -51,16 +51,15 @@ function solution(N = STAGES, users = USERS) {
   answer = percentage.sort((a, b) => {
     return b[1] - a[1] || a[0] - b[0];
   });
-  console.log(answer);
 
   return answer.map((item) => item[0]);
 }
 
-const STAGES = 5;
-const USERS = [2, 1, 2, 6, 2, 4, 3, 3];
+// const STAGES = 5;
+// const USERS = [2, 1, 2, 6, 2, 4, 3, 3];
 
 // console.log("Stages", STAGES);
 // console.log("Users", USERS);
-console.log("Answer", solution(STAGES, USERS));
+// console.log("Answer", solution(STAGES, USERS));
 
 module.exports = solution;
